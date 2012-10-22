@@ -58,3 +58,15 @@ web mvc scaffold --class ~.web.security.UserController --backingType ~.domain.us
 web mvc scaffold --class ~.web.security.RoleController --backingType ~.model.security.Authority --path /security/roles
 web mvc scaffold --class ~.web.security.RoleController --backingType ~.domain.user.security.Authority --path /security/roles
 web mvc scaffold --class ~.web.security.RoleMappingController --backingType ~.domain.user.security.AuthorityPrincipalAssignment --path /security/assignments
+enum type --class ~.domain.util.LocaleEnum
+enum constant --name CHINESE
+enum constant --name THAI 
+enum constant --name ENGLISH
+repository jpa --interface edu.cmucdu.ecommerce.dao.product.ProductDao --entity ~.domain.product.Product
+repository jpa --interface edu.cmucdu.ecommerce.dao.product.ProductPicDao --entity ~.domain.product.ProductPic
+repository jpa --interface edu.cmucdu.ecommerce.dao.product.PromotionDao --entity ~.domain.product.Promotion
+repository jpa --interface edu.cmucdu.ecommerce.dao.product.SellerProductDao --entity ~.domain.product.SellerProduct
+repository jpa --interface edu.cmucdu.ecommerce.dao.user.BuyerDao --entity ~.domain.user.Buyer
+repository jpa --interface edu.cmucdu.ecommerce.dao.user.SellerDao --entity ~.domain.user.Seller
+repository jpa --interface edu.cmucdu.ecommerce.dao.user.UserDetailDao --entity ~.domain.user.UserDetail
+repository jpa --interface edu.cmucdu.ecommerce.dao.product.ProductDao --entity ~.domain.product.Product

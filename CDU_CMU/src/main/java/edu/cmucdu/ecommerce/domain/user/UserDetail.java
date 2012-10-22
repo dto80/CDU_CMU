@@ -1,12 +1,15 @@
 package edu.cmucdu.ecommerce.domain.user;
 
 import javax.persistence.OneToOne;
+import javax.persistence.Transient;
 
 import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.jpa.entity.RooJpaEntity;
 import org.springframework.roo.addon.tostring.RooToString;
 
 import edu.cmucdu.ecommerce.domain.user.security.Principal;
+import edu.cmucdu.ecommerce.domain.util.Description;
+import edu.cmucdu.ecommerce.domain.util.LocaleEnum;
 
 @RooJavaBean
 @RooToString
@@ -17,4 +20,34 @@ public abstract class UserDetail {
 	 */
 	@OneToOne
 	private Principal principle; 
+	
+	Description name;
+	Description description;
+	
+	@Transient
+	LocaleEnum locale =LocaleEnum.CHINESE;
+
+
+
+	
+	public String getName(){
+		if (locale == LocaleEnum.CHINESE){
+			return name.getChineseDesc();
+		}else if(locale == LocaleEnum.THAI ){
+			return name.getThaiDesc();
+		}else{
+			return name.getEnglishDesc();
+		}
+	}
+	
+	public String getDescription(){
+		if (locale == LocaleEnum.CHINESE){
+			return description.getChineseDesc();
+		}else if(locale == LocaleEnum.THAI ){
+			return description.getThaiDesc();
+		}else{
+			return description.getEnglishDesc();
+		}
+	}
+	
 }
