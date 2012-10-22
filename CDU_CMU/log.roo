@@ -20,3 +20,8 @@ entity jpa --class ~.user.Authentication --testAutomatically
 entity jpa --class ~.user.Seller --extends ~.user.UserDetail --testAutomatically --activeRecord false
 entity jpa --class ~.user.Buyer --extends ~.user.UserDetail --testAutomatically --activeRecord false
 entity jpa --class ~.user.Authentication --testAutomatically --activeRecord false
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-10-22 14:44:31
+entity jpa --class edu.cmucdu.ecommerce.util.Description --activeRecord false
+entity jpa --class ~.domain.product.SellerProduct --activeRecord false
+focus --class ~.domain.product.Product
+field reference --fieldName name --type ~.util.Description
