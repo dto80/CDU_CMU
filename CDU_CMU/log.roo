@@ -1,0 +1,22 @@
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-10-22 11:23:17
+project --topLevelPackage edu.cmucdu.ecommerce --projectName CDU_CMU --java 6 --packaging WAR
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-10-22 11:23:31
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-10-22 11:28:43
+jpa setup --provider HIBERNATE --database HYPERSONIC_IN_MEMORY 
+entity jpa --class edu.cmucdu.ecommerce.domain.Product
+entity jpa --class edu.cmucdu.ecommerce.domain.ProductPic
+entity jpa --class edu.cmucdu.ecommerce.domain.product.Promotion
+// [failed] entity jpa --class edu.cmucdu.ecommerce.user.User
+entity jpa --class edu.cmucdu.ecommerce.user.UserDetail
+entity jpa --class ~.domain.product.Product --activeRecord false --testAutomatically 
+entity jpa --class edu.cmucdu.ecommerce.domain.product.ProductPic --testAutomatically --activeRecord false
+entity jpa --class edu.cmucdu.ecommerce.domain.product.Promotion --testAutomatically --activeRecord false
+entity jpa --class edu.cmucdu.ecommerce.user.UserDetail --activeRecord false --testAutomatically 
+// [failed] entity jpa --class edu.cmucdu.ecommerce.user.UserDetail --activeRecord false --testAutomatically --abstract --inheritanceType TABLE_PER_CLASS 
+entity jpa --class edu.cmucdu.ecommerce.user.UserDetail --activeRecord false  --abstract --inheritanceType TABLE_PER_CLASS 
+entity jpa --class ~.user.Seller --extends ~.user.UserDetail --testAutomatically 
+entity jpa --class ~.user.Buyer --extends ~.user.UserDetail --testAutomatically 
+entity jpa --class ~.user.Authentication --testAutomatically 
+entity jpa --class ~.user.Seller --extends ~.user.UserDetail --testAutomatically --activeRecord false
+entity jpa --class ~.user.Buyer --extends ~.user.UserDetail --testAutomatically --activeRecord false
+entity jpa --class ~.user.Authentication --testAutomatically --activeRecord false
