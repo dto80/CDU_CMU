@@ -4,7 +4,6 @@
 package edu.cmucdu.ecommerce.domain.user;
 
 import edu.cmucdu.ecommerce.domain.user.UserDetail;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

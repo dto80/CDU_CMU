@@ -25,3 +25,36 @@ entity jpa --class edu.cmucdu.ecommerce.util.Description --activeRecord false
 entity jpa --class ~.domain.product.SellerProduct --activeRecord false
 focus --class ~.domain.product.Product
 field reference --fieldName name --type ~.util.Description
+// [failed] field reference --fieldName name --type ~.util.Description --cardinality ONE_TO_ONE 
+field reference --fieldName name --type ~.domain.util.Description --cardinality ONE_TO_ONE 
+field reference --fieldName description --type ~.domain.util.Description --cardinality ONE_TO_ONE 
+field set --fieldName sellers --type ~.domain.product.SellerProduct --cardinality MANY_TO_MANY 
+focus --class ~.domain.product.SellerProduct
+field set --fieldName products --type ~.domain.product.Product --cardinality MANY_TO_MANY --mappedBy sellers
+focus --class ~.domain.product.ProductPic
+field file --contentType JPG --fieldName image 
+focus --class ~.domain.product.Product 
+field set --fieldName images --type ~.domain.product.ProductPic --cardinality ONE_TO_MANY 
+focus --class ~.domain.product.SellerProduct
+field set --fieldName images --type ~.domain.product.ProductPic --cardinality ONE_TO_MANY 
+field reference --fieldName seller --type ~.domain.user.Seller --cardinality MANY_TO_ONE 
+focus --class ~.domain.user.Seller 
+field set --fieldName products --type ~.domain.product.SellerProduct --cardinality ONE_TO_MANY --mappedBy seller
+focus --class ~.domain.product.SellerProduct
+field reference --fieldName promotion --type ~.domain.product.Promotion --cardinality ONE_TO_ONE 
+entity jpa --class ~.domain.user.security.Principal --table security_principals
+field string --fieldName userName --notNull --sizeMax 50 --sizeMin 3
+field string --fieldName password --notNull --sizeMax 50 --sizeMin 3
+field boolean --fieldName enabled
+entity jpa --class ~.domain.user.security.Authority --table security_authorities
+field string --fieldName roleId --notNull --sizeMax 10 --sizeMin 8
+field string --fieldName authority --notNull --sizeMax 50 --sizeMin 8 --regexp ^ROLE_[A-Z]*
+entity jpa --class ~.domain.user.security.AuthorityPrincipalAssignment --table security_role_assiments 
+field reference --fieldName username --type ~.domain.user.security.Principal
+// [failed] field reference --fieldName roleId --type ~.model.security.Authority
+field reference --fieldName roleId --type ~.domain.user.security.Authority
+web mvc setup
+web mvc scaffold --class ~.web.security.UserController --backingType ~.domain.user.security.Principal --path /security/users
+web mvc scaffold --class ~.web.security.RoleController --backingType ~.model.security.Authority --path /security/roles
+web mvc scaffold --class ~.web.security.RoleController --backingType ~.domain.user.security.Authority --path /security/roles
+web mvc scaffold --class ~.web.security.RoleMappingController --backingType ~.domain.user.security.AuthorityPrincipalAssignment --path /security/assignments

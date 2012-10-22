@@ -4,7 +4,6 @@
 package edu.cmucdu.ecommerce.domain.user;
 
 import edu.cmucdu.ecommerce.domain.user.Seller;
-
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
