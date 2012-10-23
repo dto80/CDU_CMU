@@ -3,7 +3,7 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <form:update id="fu_edu_cmucdu_ecommerce_domain_user_security_AuthorityPrincipalAssignment" modelAttribute="authorityPrincipalAssignment" path="/security/assignments" versionField="Version" z="stVnyMmUeMkr91MdQtaoYUNwmsQ=">
-        <field:select field="username" id="c_edu_cmucdu_ecommerce_domain_user_security_AuthorityPrincipalAssignment_username" itemValue="id" items="${principals}" path="/security/users" z="Jv4V441eNjxRKKVHFEqKCSXvNKA="/>
-        <field:select field="roleId" id="c_edu_cmucdu_ecommerce_domain_user_security_AuthorityPrincipalAssignment_roleId" itemValue="id" items="${authoritys}" path="/security/roles" z="saMrLCCjptykQVaaTEm/uAFW9Gg="/>
+        <field:select field="username" id="c_edu_cmucdu_ecommerce_domain_user_security_AuthorityPrincipalAssignment_username" itemValue="id" items="${principals}" path="/principals" z="sYT4+5CIn37UMjGrJi2OpPv7Vds="/>
+        <field:select field="roleId" id="c_edu_cmucdu_ecommerce_domain_user_security_AuthorityPrincipalAssignment_roleId" itemValue="id" items="${authoritys}" path="/authoritys" z="1B7e2pmKkFWaPL+Ye88d+HlEsyw="/>
     </form:update>
 </div>

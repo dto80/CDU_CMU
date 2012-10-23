@@ -3,9 +3,12 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <form:create id="fc_edu_cmucdu_ecommerce_domain_product_Product" modelAttribute="product" path="/products" render="${empty dependencies}" z="f1V4rEivSQXh/qHFrqK9Q2FZo0M=">
-        <field:select field="name" id="c_edu_cmucdu_ecommerce_domain_product_Product_name" itemValue="id" items="${descriptions}" path="/descriptions" z="umIu3SNKDYJ7HaxSFCoKczuYjTI="/>
-        <field:select field="description" id="c_edu_cmucdu_ecommerce_domain_product_Product_description" itemValue="id" items="${descriptions}" path="/descriptions" z="ANmLPceYjYfHtGACICyj1awDOBE="/>
-        <field:select field="sellers" id="c_edu_cmucdu_ecommerce_domain_product_Product_sellers" itemValue="id" items="${sellerproducts}" multiple="true" path="/sellerproducts" z="eJqTrktPWKtiVfqi7u6lwBTsF3k="/>
+        <field:input field="name.thaiDesc" id="c_edu_cmucdu_ecommerce_domain_product_Product_name_thaiDesc"/>
+        <field:input field="name.chineseDesc" id="c_edu_cmucdu_ecommerce_domain_product_Product_name_chineseDesc"/>
+        <field:input field="name.englishDesc" id="c_edu_cmucdu_ecommerce_domain_product_Product_name_englishDesc"/>
+        <field:textarea field="description.thaiDesc" id="c_edu_cmucdu_ecommerce_domain_product_Product_description_thaiDesc"/>
+        <field:textarea field="description.chineseDesc" id="c_edu_cmucdu_ecommerce_domain_product_Product_description_chineseDesc"/>
+        <field:textarea field="description.englishDesc" id="c_edu_cmucdu_ecommerce_domain_product_Product_description_englishDesc"/>
         <field:simple field="images" id="c_edu_cmucdu_ecommerce_domain_product_Product_images" messageCode="entity_reference_not_managed" messageCodeAttribute="Product Pic" z="BkQRn2UjwQCCuOJ1MtlILnCoAmg="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_edu_cmucdu_ecommerce_domain_product_Product" render="${not empty dependencies}" z="OLKSQJz8IOsmx8uJ+oLg7K3ySz4="/>

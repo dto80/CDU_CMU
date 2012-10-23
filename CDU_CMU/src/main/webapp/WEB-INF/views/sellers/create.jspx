@@ -5,7 +5,7 @@
     <form:create id="fc_edu_cmucdu_ecommerce_domain_user_Seller" modelAttribute="seller" path="/sellers" render="${empty dependencies}" z="wfWLxFqLukRlU2YpxE6JtuXkBwU=">
         <field:input field="name" id="c_edu_cmucdu_ecommerce_domain_user_Seller_name" z="pS2c+rCSd4zL6vQYd4gbNupPPoM="/>
         <field:input field="description" id="c_edu_cmucdu_ecommerce_domain_user_Seller_description" z="5AAZaR7zSkPTfMrjThKdIajD68A="/>
-        <field:select field="principle" id="c_edu_cmucdu_ecommerce_domain_user_Seller_principle" itemValue="id" items="${principals}" path="/security/users" z="sR0S5hwjXUonzR5r4LLfzes/9NI="/>
+        <field:select field="principle" id="c_edu_cmucdu_ecommerce_domain_user_Seller_principle" itemValue="id" items="${principals}" path="/principals" z="bUweOcKBuooWyd4xu41qjSZGZWo="/>
         <field:input field="locale" id="c_edu_cmucdu_ecommerce_domain_user_Seller_locale" z="YDnfb4X+fe+wH+VGqBNYWteNfm8="/>
         <field:simple field="products" id="c_edu_cmucdu_ecommerce_domain_user_Seller_products" messageCode="entity_reference_not_managed" messageCodeAttribute="Seller Product" z="XcFhhoX7FdM9RBwZHXFrGS5wsS0="/>
     </form:create>
