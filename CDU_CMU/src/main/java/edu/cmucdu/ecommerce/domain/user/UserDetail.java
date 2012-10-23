@@ -31,7 +31,7 @@ public abstract class UserDetail {
 
 
 	
-	public String getName(){
+	public String getLocalName(){
 		if (locale == LocaleEnum.CHINESE){
 			return name.getChineseDesc();
 		}else if(locale == LocaleEnum.THAI ){
@@ -41,7 +41,7 @@ public abstract class UserDetail {
 		}
 	}
 	
-	public String getDescription(){
+	public String getLocalDescription(){
 		if (locale == LocaleEnum.CHINESE){
 			return description.getChineseDesc();
 		}else if(locale == LocaleEnum.THAI ){
