@@ -20,8 +20,9 @@ public abstract class UserDetail {
 	 */
 	@OneToOne
 	private Principal principle; 
-	
+	@OneToOne
 	Description name;
+	@OneToOne
 	Description description;
 	
 	@Transient
