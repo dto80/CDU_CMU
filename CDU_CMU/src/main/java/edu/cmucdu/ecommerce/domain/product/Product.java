@@ -26,8 +26,8 @@ public class Product {
     @OneToOne(cascade = CascadeType.ALL)
     private Description description;
 
-    		
-    @ManyToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy="product")
+
     private Set<SellerProduct> sellers = new HashSet<SellerProduct>();
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy="product")

@@ -11,4 +11,10 @@ public class Description {
 	String thaiDesc;
 	String chineseDesc;
 	String englishDesc;
+	public Description(String thaiDesc, String chineseDesc, String englishDesc) {
+		super();
+		this.thaiDesc = thaiDesc;
+		this.chineseDesc = chineseDesc;
+		this.englishDesc = englishDesc;
+	}
 }
