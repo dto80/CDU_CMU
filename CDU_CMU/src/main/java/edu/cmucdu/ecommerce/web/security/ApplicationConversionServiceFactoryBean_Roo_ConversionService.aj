@@ -3,10 +3,24 @@
 
 package edu.cmucdu.ecommerce.web.security;
 
+import edu.cmucdu.ecommerce.dao.product.ProductDao;
+import edu.cmucdu.ecommerce.dao.product.ProductPicDao;
+import edu.cmucdu.ecommerce.dao.product.PromotionDao;
+import edu.cmucdu.ecommerce.dao.product.SellerProductDao;
+import edu.cmucdu.ecommerce.dao.user.BuyerDao;
+import edu.cmucdu.ecommerce.dao.user.SellerDao;
+import edu.cmucdu.ecommerce.domain.product.Product;
+import edu.cmucdu.ecommerce.domain.product.ProductPic;
+import edu.cmucdu.ecommerce.domain.product.Promotion;
+import edu.cmucdu.ecommerce.domain.product.SellerProduct;
+import edu.cmucdu.ecommerce.domain.user.Buyer;
+import edu.cmucdu.ecommerce.domain.user.Seller;
 import edu.cmucdu.ecommerce.domain.user.security.Authority;
 import edu.cmucdu.ecommerce.domain.user.security.AuthorityPrincipalAssignment;
 import edu.cmucdu.ecommerce.domain.user.security.Principal;
+import edu.cmucdu.ecommerce.domain.util.Description;
 import edu.cmucdu.ecommerce.web.security.ApplicationConversionServiceFactoryBean;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.format.FormatterRegistry;
@@ -14,6 +28,168 @@ import org.springframework.format.FormatterRegistry;
 privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService {
     
     declare @type: ApplicationConversionServiceFactoryBean: @Configurable;
+    
+    @Autowired
+    ProductDao ApplicationConversionServiceFactoryBean.productDao;
+    
+    @Autowired
+    ProductPicDao ApplicationConversionServiceFactoryBean.productPicDao;
+    
+    @Autowired
+    PromotionDao ApplicationConversionServiceFactoryBean.promotionDao;
+    
+    @Autowired
+    SellerProductDao ApplicationConversionServiceFactoryBean.sellerProductDao;
+    
+    @Autowired
+    BuyerDao ApplicationConversionServiceFactoryBean.buyerDao;
+    
+    @Autowired
+    SellerDao ApplicationConversionServiceFactoryBean.sellerDao;
+    
+    public Converter<Product, String> ApplicationConversionServiceFactoryBean.getProductToStringConverter() {
+        return new org.springframework.core.convert.converter.Converter<edu.cmucdu.ecommerce.domain.product.Product, java.lang.String>() {
+            public String convert(Product product) {
+                return "(no displayable fields)";
+            }
+        };
+    }
+    
+    public Converter<Long, Product> ApplicationConversionServiceFactoryBean.getIdToProductConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.Long, edu.cmucdu.ecommerce.domain.product.Product>() {
+            public edu.cmucdu.ecommerce.domain.product.Product convert(java.lang.Long id) {
+                return productDao.findOne(id);
+            }
+        };
+    }
+    
+    public Converter<String, Product> ApplicationConversionServiceFactoryBean.getStringToProductConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, edu.cmucdu.ecommerce.domain.product.Product>() {
+            public edu.cmucdu.ecommerce.domain.product.Product convert(String id) {
+                return getObject().convert(getObject().convert(id, Long.class), Product.class);
+            }
+        };
+    }
+    
+    public Converter<ProductPic, String> ApplicationConversionServiceFactoryBean.getProductPicToStringConverter() {
+        return new org.springframework.core.convert.converter.Converter<edu.cmucdu.ecommerce.domain.product.ProductPic, java.lang.String>() {
+            public String convert(ProductPic productPic) {
+                return new StringBuilder().append(productPic.getImageType()).toString();
+            }
+        };
+    }
+    
+    public Converter<Long, ProductPic> ApplicationConversionServiceFactoryBean.getIdToProductPicConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.Long, edu.cmucdu.ecommerce.domain.product.ProductPic>() {
+            public edu.cmucdu.ecommerce.domain.product.ProductPic convert(java.lang.Long id) {
+                return productPicDao.findOne(id);
+            }
+        };
+    }
+    
+    public Converter<String, ProductPic> ApplicationConversionServiceFactoryBean.getStringToProductPicConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, edu.cmucdu.ecommerce.domain.product.ProductPic>() {
+            public edu.cmucdu.ecommerce.domain.product.ProductPic convert(String id) {
+                return getObject().convert(getObject().convert(id, Long.class), ProductPic.class);
+            }
+        };
+    }
+    
+    public Converter<Promotion, String> ApplicationConversionServiceFactoryBean.getPromotionToStringConverter() {
+        return new org.springframework.core.convert.converter.Converter<edu.cmucdu.ecommerce.domain.product.Promotion, java.lang.String>() {
+            public String convert(Promotion promotion) {
+                return new StringBuilder().append(promotion.getPercentDiscount()).append(' ').append(promotion.getAbsoluteDiscount()).toString();
+            }
+        };
+    }
+    
+    public Converter<Long, Promotion> ApplicationConversionServiceFactoryBean.getIdToPromotionConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.Long, edu.cmucdu.ecommerce.domain.product.Promotion>() {
+            public edu.cmucdu.ecommerce.domain.product.Promotion convert(java.lang.Long id) {
+                return promotionDao.findOne(id);
+            }
+        };
+    }
+    
+    public Converter<String, Promotion> ApplicationConversionServiceFactoryBean.getStringToPromotionConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, edu.cmucdu.ecommerce.domain.product.Promotion>() {
+            public edu.cmucdu.ecommerce.domain.product.Promotion convert(String id) {
+                return getObject().convert(getObject().convert(id, Long.class), Promotion.class);
+            }
+        };
+    }
+    
+    public Converter<SellerProduct, String> ApplicationConversionServiceFactoryBean.getSellerProductToStringConverter() {
+        return new org.springframework.core.convert.converter.Converter<edu.cmucdu.ecommerce.domain.product.SellerProduct, java.lang.String>() {
+            public String convert(SellerProduct sellerProduct) {
+                return new StringBuilder().append(sellerProduct.getPrice()).append(' ').append(sellerProduct.getWeight()).toString();
+            }
+        };
+    }
+    
+    public Converter<Long, SellerProduct> ApplicationConversionServiceFactoryBean.getIdToSellerProductConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.Long, edu.cmucdu.ecommerce.domain.product.SellerProduct>() {
+            public edu.cmucdu.ecommerce.domain.product.SellerProduct convert(java.lang.Long id) {
+                return sellerProductDao.findOne(id);
+            }
+        };
+    }
+    
+    public Converter<String, SellerProduct> ApplicationConversionServiceFactoryBean.getStringToSellerProductConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, edu.cmucdu.ecommerce.domain.product.SellerProduct>() {
+            public edu.cmucdu.ecommerce.domain.product.SellerProduct convert(String id) {
+                return getObject().convert(getObject().convert(id, Long.class), SellerProduct.class);
+            }
+        };
+    }
+    
+    public Converter<Buyer, String> ApplicationConversionServiceFactoryBean.getBuyerToStringConverter() {
+        return new org.springframework.core.convert.converter.Converter<edu.cmucdu.ecommerce.domain.user.Buyer, java.lang.String>() {
+            public String convert(Buyer buyer) {
+                return "(no displayable fields)";
+            }
+        };
+    }
+    
+    public Converter<Long, Buyer> ApplicationConversionServiceFactoryBean.getIdToBuyerConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.Long, edu.cmucdu.ecommerce.domain.user.Buyer>() {
+            public edu.cmucdu.ecommerce.domain.user.Buyer convert(java.lang.Long id) {
+                return buyerDao.findOne(id);
+            }
+        };
+    }
+    
+    public Converter<String, Buyer> ApplicationConversionServiceFactoryBean.getStringToBuyerConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, edu.cmucdu.ecommerce.domain.user.Buyer>() {
+            public edu.cmucdu.ecommerce.domain.user.Buyer convert(String id) {
+                return getObject().convert(getObject().convert(id, Long.class), Buyer.class);
+            }
+        };
+    }
+    
+    public Converter<Seller, String> ApplicationConversionServiceFactoryBean.getSellerToStringConverter() {
+        return new org.springframework.core.convert.converter.Converter<edu.cmucdu.ecommerce.domain.user.Seller, java.lang.String>() {
+            public String convert(Seller seller) {
+                return "(no displayable fields)";
+            }
+        };
+    }
+    
+    public Converter<Long, Seller> ApplicationConversionServiceFactoryBean.getIdToSellerConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.Long, edu.cmucdu.ecommerce.domain.user.Seller>() {
+            public edu.cmucdu.ecommerce.domain.user.Seller convert(java.lang.Long id) {
+                return sellerDao.findOne(id);
+            }
+        };
+    }
+    
+    public Converter<String, Seller> ApplicationConversionServiceFactoryBean.getStringToSellerConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, edu.cmucdu.ecommerce.domain.user.Seller>() {
+            public edu.cmucdu.ecommerce.domain.user.Seller convert(String id) {
+                return getObject().convert(getObject().convert(id, Long.class), Seller.class);
+            }
+        };
+    }
     
     public Converter<Authority, String> ApplicationConversionServiceFactoryBean.getAuthorityToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<edu.cmucdu.ecommerce.domain.user.security.Authority, java.lang.String>() {
@@ -87,7 +263,41 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         };
     }
     
+    public Converter<Description, String> ApplicationConversionServiceFactoryBean.getDescriptionToStringConverter() {
+        return new org.springframework.core.convert.converter.Converter<edu.cmucdu.ecommerce.domain.util.Description, java.lang.String>() {
+            public String convert(Description description) {
+                return new StringBuilder().append(description.getThaiDesc()).append(' ').append(description.getChineseDesc()).append(' ').append(description.getEnglishDesc()).toString();
+            }
+        };
+    }
+    
+    public Converter<String, Description> ApplicationConversionServiceFactoryBean.getStringToDescriptionConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, edu.cmucdu.ecommerce.domain.util.Description>() {
+            public edu.cmucdu.ecommerce.domain.util.Description convert(String id) {
+                return getObject().convert(getObject().convert(id, Long.class), Description.class);
+            }
+        };
+    }
+    
     public void ApplicationConversionServiceFactoryBean.installLabelConverters(FormatterRegistry registry) {
+        registry.addConverter(getProductToStringConverter());
+        registry.addConverter(getIdToProductConverter());
+        registry.addConverter(getStringToProductConverter());
+        registry.addConverter(getProductPicToStringConverter());
+        registry.addConverter(getIdToProductPicConverter());
+        registry.addConverter(getStringToProductPicConverter());
+        registry.addConverter(getPromotionToStringConverter());
+        registry.addConverter(getIdToPromotionConverter());
+        registry.addConverter(getStringToPromotionConverter());
+        registry.addConverter(getSellerProductToStringConverter());
+        registry.addConverter(getIdToSellerProductConverter());
+        registry.addConverter(getStringToSellerProductConverter());
+        registry.addConverter(getBuyerToStringConverter());
+        registry.addConverter(getIdToBuyerConverter());
+        registry.addConverter(getStringToBuyerConverter());
+        registry.addConverter(getSellerToStringConverter());
+        registry.addConverter(getIdToSellerConverter());
+        registry.addConverter(getStringToSellerConverter());
         registry.addConverter(getAuthorityToStringConverter());
         registry.addConverter(getIdToAuthorityConverter());
         registry.addConverter(getStringToAuthorityConverter());
@@ -97,6 +307,8 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         registry.addConverter(getPrincipalToStringConverter());
         registry.addConverter(getIdToPrincipalConverter());
         registry.addConverter(getStringToPrincipalConverter());
+        registry.addConverter(getDescriptionToStringConverter());
+        registry.addConverter(getStringToDescriptionConverter());
     }
     
     public void ApplicationConversionServiceFactoryBean.afterPropertiesSet() {

@@ -4,7 +4,6 @@
 package edu.cmucdu.ecommerce.domain.user;
 
 import edu.cmucdu.ecommerce.domain.user.Buyer;
-
 import javax.persistence.Entity;
 
 privileged aspect Buyer_Roo_Jpa_Entity {
