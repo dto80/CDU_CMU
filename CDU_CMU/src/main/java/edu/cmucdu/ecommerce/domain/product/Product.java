@@ -32,5 +32,34 @@ public class Product {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy="product")
     private Set<ProductPic> images = new HashSet<ProductPic>();
+	@Transient
+	LocaleEnum locale =LocaleEnum.CHINESE;
+
+	public void setLocale(LocaleEnum locale){
+		this.locale = locale;
+	}
+
+
+	
+	public String getLocalName(){
+		if (locale == LocaleEnum.CHINESE){
+			return name.getChineseDesc();
+		}else if(locale == LocaleEnum.THAI ){
+			return name.getThaiDesc();
+		}else{
+			return name.getEnglishDesc();
+		}
+	}
+	
+	public String getLocalDescription(){
+		if (locale == LocaleEnum.CHINESE){
+			return description.getChineseDesc();
+		}else if(locale == LocaleEnum.THAI ){
+			return description.getThaiDesc();
+		}else{
+			return description.getEnglishDesc();
+		}
+	}
+	
 
 }

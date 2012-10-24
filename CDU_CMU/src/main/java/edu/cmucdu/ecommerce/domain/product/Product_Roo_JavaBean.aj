@@ -7,6 +7,7 @@ import edu.cmucdu.ecommerce.domain.product.Product;
 import edu.cmucdu.ecommerce.domain.product.ProductPic;
 import edu.cmucdu.ecommerce.domain.product.SellerProduct;
 import edu.cmucdu.ecommerce.domain.util.Description;
+import edu.cmucdu.ecommerce.domain.util.LocaleEnum;
 import java.util.Set;
 
 privileged aspect Product_Roo_JavaBean {
@@ -41,6 +42,10 @@ privileged aspect Product_Roo_JavaBean {
     
     public void Product.setImages(Set<ProductPic> images) {
         this.images = images;
+    }
+    
+    public LocaleEnum Product.getLocale() {
+        return this.locale;
     }
     
 }

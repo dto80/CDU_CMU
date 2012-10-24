@@ -3,10 +3,10 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <form:create id="fc_edu_cmucdu_ecommerce_domain_user_Buyer" modelAttribute="buyer" path="/buyers" render="${empty dependencies}" z="7YuXVUZD3hefHRXCvMOO0T7CMBw=">
-        <field:input field="name" id="c_edu_cmucdu_ecommerce_domain_user_Buyer_name" z="Uau6ZOSI7/kAdpVtayksJhXfqeY="/>
-        <field:input field="description" id="c_edu_cmucdu_ecommerce_domain_user_Buyer_description" z="TSlgmgzPCJbSAujOi7NE3JKaEJo="/>
         <field:select field="principle" id="c_edu_cmucdu_ecommerce_domain_user_Buyer_principle" itemValue="id" items="${principals}" path="/principals" z="LnwysFoaAAUkMOKXPVI2VdhqwfA="/>
         <field:input field="locale" id="c_edu_cmucdu_ecommerce_domain_user_Buyer_locale" z="5X4FewrJx4eAZ+NEVWFta5t4lXE="/>
+        <field:select field="name" id="c_edu_cmucdu_ecommerce_domain_user_Buyer_name" itemValue="id" items="${descriptions}" path="/descriptions" z="dvF+j/VJtQDlyFe0EIuD2e+iY4A="/>
+        <field:select field="description" id="c_edu_cmucdu_ecommerce_domain_user_Buyer_description" itemValue="id" items="${descriptions}" path="/descriptions" z="X4dyAsUZ3DFgI8IeXH+ZRLxYHPA="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_edu_cmucdu_ecommerce_domain_user_Buyer" render="${not empty dependencies}" z="SIGxJR8Y4YzHLSMWiJS0acteQKE="/>
 </div>

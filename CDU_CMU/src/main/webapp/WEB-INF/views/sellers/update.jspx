@@ -3,10 +3,10 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <form:update id="fu_edu_cmucdu_ecommerce_domain_user_Seller" modelAttribute="seller" path="/sellers" versionField="Version" z="xYT5xak+aGq3Tg7wGtRCilyulCo=">
-        <field:input field="name" id="c_edu_cmucdu_ecommerce_domain_user_Seller_name" z="pS2c+rCSd4zL6vQYd4gbNupPPoM="/>
-        <field:input field="description" id="c_edu_cmucdu_ecommerce_domain_user_Seller_description" z="5AAZaR7zSkPTfMrjThKdIajD68A="/>
         <field:select field="principle" id="c_edu_cmucdu_ecommerce_domain_user_Seller_principle" itemValue="id" items="${principals}" path="/principals" z="bUweOcKBuooWyd4xu41qjSZGZWo="/>
         <field:input field="locale" id="c_edu_cmucdu_ecommerce_domain_user_Seller_locale" z="YDnfb4X+fe+wH+VGqBNYWteNfm8="/>
         <field:simple field="products" id="c_edu_cmucdu_ecommerce_domain_user_Seller_products" messageCode="entity_reference_not_managed" messageCodeAttribute="Seller Product" z="XcFhhoX7FdM9RBwZHXFrGS5wsS0="/>
+        <field:select field="name" id="c_edu_cmucdu_ecommerce_domain_user_Seller_name" itemValue="id" items="${descriptions}" path="/descriptions" z="fWlgUe3wq5tz6Mou2/IQ+5zqGdg="/>
+        <field:select field="description" id="c_edu_cmucdu_ecommerce_domain_user_Seller_description" itemValue="id" items="${descriptions}" path="/descriptions" z="An3vK93yeiluYQiwkBMSp2nN7VU="/>
     </form:update>
 </div>
