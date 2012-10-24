@@ -10,6 +10,9 @@ import edu.cmucdu.ecommerce.domain.product.SellerProduct;
 import edu.cmucdu.ecommerce.domain.util.Description;
 import java.security.SecureRandom;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
@@ -35,6 +38,8 @@ privileged aspect PromotionDataOnDemand_Roo_DataOnDemand {
         setDescription(obj, index);
         setPercentDiscount(obj, index);
         setProduct(obj, index);
+        setStartDate(obj, index);
+        setStopDate(obj, index);
         return obj;
     }
     
@@ -56,6 +61,16 @@ privileged aspect PromotionDataOnDemand_Roo_DataOnDemand {
     public void PromotionDataOnDemand.setProduct(Promotion obj, int index) {
         SellerProduct product = null;
         obj.setProduct(product);
+    }
+    
+    public void PromotionDataOnDemand.setStartDate(Promotion obj, int index) {
+        Date startDate = new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR), Calendar.getInstance().get(Calendar.MONTH), Calendar.getInstance().get(Calendar.DAY_OF_MONTH), Calendar.getInstance().get(Calendar.HOUR_OF_DAY), Calendar.getInstance().get(Calendar.MINUTE), Calendar.getInstance().get(Calendar.SECOND) + new Double(Math.random() * 1000).intValue()).getTime();
+        obj.setStartDate(startDate);
+    }
+    
+    public void PromotionDataOnDemand.setStopDate(Promotion obj, int index) {
+        Date stopDate = new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR), Calendar.getInstance().get(Calendar.MONTH), Calendar.getInstance().get(Calendar.DAY_OF_MONTH), Calendar.getInstance().get(Calendar.HOUR_OF_DAY), Calendar.getInstance().get(Calendar.MINUTE), Calendar.getInstance().get(Calendar.SECOND) + new Double(Math.random() * 1000).intValue()).getTime();
+        obj.setStopDate(stopDate);
     }
     
     public Promotion PromotionDataOnDemand.getSpecificPromotion(int index) {

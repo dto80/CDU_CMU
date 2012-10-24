@@ -86,3 +86,9 @@ web mvc all --package ~.web
 // Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-10-23 21:56:54
 // Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-10-24 10:37:17
 // Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-10-24 14:45:00
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-10-24 15:26:46
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-10-24 15:30:29
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-10-24 15:39:19
+focus --class ~.domain.product.Promotion
+field date --fieldName startDate --type java.util.Date
+field date --fieldName stopDate --type java.util.Date

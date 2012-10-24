@@ -7,6 +7,8 @@
         <field:select field="description" id="c_edu_cmucdu_ecommerce_domain_product_Promotion_description" itemValue="id" items="${descriptions}" path="/descriptions" z="UTlPvLOwMJ/4wnElzU7bK6SfULg="/>
         <field:input field="percentDiscount" id="c_edu_cmucdu_ecommerce_domain_product_Promotion_percentDiscount" z="1p9MZVG0TPZeK9mzzRwJeYLCvx4="/>
         <field:input field="absoluteDiscount" id="c_edu_cmucdu_ecommerce_domain_product_Promotion_absoluteDiscount" z="p5g+uz/pNtj0nVI1H80PtM2Z74A="/>
+        <field:datetime dateTimePattern="${promotion_startdate_date_format}" field="startDate" id="c_edu_cmucdu_ecommerce_domain_product_Promotion_startDate" z="C8PJTI6Ryi2gtnj0wFk3Yq34Yfk="/>
+        <field:datetime dateTimePattern="${promotion_stopdate_date_format}" field="stopDate" id="c_edu_cmucdu_ecommerce_domain_product_Promotion_stopDate" z="I0S3mi0D8wPhonKkEeUssLDRUb0="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_edu_cmucdu_ecommerce_domain_product_Promotion" render="${not empty dependencies}" z="m9Z7OqQSjoBQPJpB0s2rfxrhMfw="/>
 </div>

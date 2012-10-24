@@ -98,7 +98,7 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     public Converter<Promotion, String> ApplicationConversionServiceFactoryBean.getPromotionToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<edu.cmucdu.ecommerce.domain.product.Promotion, java.lang.String>() {
             public String convert(Promotion promotion) {
-                return new StringBuilder().append(promotion.getPercentDiscount()).append(' ').append(promotion.getAbsoluteDiscount()).toString();
+                return new StringBuilder().append(promotion.getPercentDiscount()).append(' ').append(promotion.getAbsoluteDiscount()).append(' ').append(promotion.getStartDate()).append(' ').append(promotion.getStopDate()).toString();
             }
         };
     }

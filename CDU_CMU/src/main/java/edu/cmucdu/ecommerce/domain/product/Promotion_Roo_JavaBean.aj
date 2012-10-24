@@ -6,6 +6,7 @@ package edu.cmucdu.ecommerce.domain.product;
 import edu.cmucdu.ecommerce.domain.product.Promotion;
 import edu.cmucdu.ecommerce.domain.product.SellerProduct;
 import edu.cmucdu.ecommerce.domain.util.Description;
+import java.util.Date;
 
 privileged aspect Promotion_Roo_JavaBean {
     
@@ -39,6 +40,22 @@ privileged aspect Promotion_Roo_JavaBean {
     
     public void Promotion.setAbsoluteDiscount(double absoluteDiscount) {
         this.absoluteDiscount = absoluteDiscount;
+    }
+    
+    public Date Promotion.getStartDate() {
+        return this.startDate;
+    }
+    
+    public void Promotion.setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+    
+    public Date Promotion.getStopDate() {
+        return this.stopDate;
+    }
+    
+    public void Promotion.setStopDate(Date stopDate) {
+        this.stopDate = stopDate;
     }
     
 }

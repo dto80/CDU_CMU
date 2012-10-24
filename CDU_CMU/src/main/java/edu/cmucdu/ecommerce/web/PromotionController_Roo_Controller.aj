@@ -10,7 +10,9 @@ import edu.cmucdu.ecommerce.web.PromotionController;
 import java.io.UnsupportedEncodingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import org.joda.time.format.DateTimeFormat;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -47,6 +49,7 @@ privileged aspect PromotionController_Roo_Controller {
     
     @RequestMapping(value = "/{id}", produces = "text/html")
     public String PromotionController.show(@PathVariable("id") Long id, Model uiModel) {
+        addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("promotion", promotionDao.findOne(id));
         uiModel.addAttribute("itemId", id);
         return "promotions/show";
@@ -63,6 +66,7 @@ privileged aspect PromotionController_Roo_Controller {
         } else {
             uiModel.addAttribute("promotions", promotionDao.findAll());
         }
+        addDateTimeFormatPatterns(uiModel);
         return "promotions/list";
     }
     
@@ -93,8 +97,14 @@ privileged aspect PromotionController_Roo_Controller {
         return "redirect:/promotions";
     }
     
+    void PromotionController.addDateTimeFormatPatterns(Model uiModel) {
+        uiModel.addAttribute("promotion_startdate_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("promotion_stopdate_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+    }
+    
     void PromotionController.populateEditForm(Model uiModel, Promotion promotion) {
         uiModel.addAttribute("promotion", promotion);
+        addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("sellerproducts", sellerProductDao.findAll());
     }
     

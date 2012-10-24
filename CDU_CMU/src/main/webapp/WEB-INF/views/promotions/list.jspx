@@ -8,6 +8,8 @@
             <table:column id="c_edu_cmucdu_ecommerce_domain_product_Promotion_description" property="description" z="oOfpeiZUOfkHeiM6HqYzS6XLAc0="/>
             <table:column id="c_edu_cmucdu_ecommerce_domain_product_Promotion_percentDiscount" property="percentDiscount" z="ar9hymL53Y4gZ4ReioMjNXe3pc4="/>
             <table:column id="c_edu_cmucdu_ecommerce_domain_product_Promotion_absoluteDiscount" property="absoluteDiscount" z="MeNKbQY7yBfO+mjoE6JlAEKnYIE="/>
+            <table:column date="true" dateTimePattern="${promotion_startdate_date_format}" id="c_edu_cmucdu_ecommerce_domain_product_Promotion_startDate" property="startDate" z="0x8cA0OYiELmTAkt3drpXfjscF4="/>
+            <table:column date="true" dateTimePattern="${promotion_stopdate_date_format}" id="c_edu_cmucdu_ecommerce_domain_product_Promotion_stopDate" property="stopDate" z="15benJmfOCiiFKSegV+ExxOZ4QQ="/>
         </table:table>
     </page:list>
 </div>
