@@ -27,12 +27,12 @@ privileged aspect Product_Roo_JavaBean {
         this.description = description;
     }
     
-    public Set<SellerProduct> Product.getSellers() {
-        return this.sellers;
+    public Set<SellerProduct> Product.getSellerProducts() {
+        return this.sellerProducts;
     }
     
-    public void Product.setSellers(Set<SellerProduct> sellers) {
-        this.sellers = sellers;
+    public void Product.setSellerProducts(Set<SellerProduct> sellerProducts) {
+        this.sellerProducts = sellerProducts;
     }
     
     public Set<ProductPic> Product.getImages() {

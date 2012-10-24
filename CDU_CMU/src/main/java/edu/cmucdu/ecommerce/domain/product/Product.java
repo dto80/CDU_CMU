@@ -28,7 +28,7 @@ public class Product {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy="product")
 
-    private Set<SellerProduct> sellers = new HashSet<SellerProduct>();
+    private Set<SellerProduct> sellerProducts = new HashSet<SellerProduct>();
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy="product")
     private Set<ProductPic> images = new HashSet<ProductPic>();

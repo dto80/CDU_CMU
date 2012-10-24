@@ -12,12 +12,12 @@ import java.util.Set;
 
 privileged aspect SellerProduct_Roo_JavaBean {
     
-    public Set<Product> SellerProduct.getProducts() {
-        return this.products;
+    public Product SellerProduct.getProduct() {
+        return this.product;
     }
     
-    public void SellerProduct.setProducts(Set<Product> products) {
-        this.products = products;
+    public void SellerProduct.setProduct(Product product) {
+        this.product = product;
     }
     
     public Set<ProductPic> SellerProduct.getImages() {

@@ -5,7 +5,7 @@
     <form:update id="fu_edu_cmucdu_ecommerce_domain_product_Product" modelAttribute="product" path="/products" versionField="Version" z="fq2UDwW0WNPS0Q3PJKMR4FHM3Nc=">
         <field:select field="name" id="c_edu_cmucdu_ecommerce_domain_product_Product_name" itemValue="id" items="${descriptions}" path="/descriptions" z="umIu3SNKDYJ7HaxSFCoKczuYjTI="/>
         <field:select field="description" id="c_edu_cmucdu_ecommerce_domain_product_Product_description" itemValue="id" items="${descriptions}" path="/descriptions" z="ANmLPceYjYfHtGACICyj1awDOBE="/>
-        <field:select field="sellers" id="c_edu_cmucdu_ecommerce_domain_product_Product_sellers" itemValue="id" items="${sellerproducts}" multiple="true" path="/sellerproducts" z="eJqTrktPWKtiVfqi7u6lwBTsF3k="/>
         <field:simple field="images" id="c_edu_cmucdu_ecommerce_domain_product_Product_images" messageCode="entity_reference_not_managed" messageCodeAttribute="Product Pic" z="BkQRn2UjwQCCuOJ1MtlILnCoAmg="/>
+        <field:simple field="sellerProducts" id="c_edu_cmucdu_ecommerce_domain_product_Product_sellerProducts" messageCode="entity_reference_not_managed" messageCodeAttribute="Seller Product" z="Y1zikx3jLKupAibbS1RGnl9oFEo="/>
     </form:update>
 </div>

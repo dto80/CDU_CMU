@@ -17,8 +17,8 @@ import org.springframework.roo.addon.tostring.RooToString;
 @RooJpaEntity
 public class SellerProduct {
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    private Product product;
+	@ManyToOne(cascade = CascadeType.ALL)
+	private Product product;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "sellerProduct")
     private Set<ProductPic> images = new HashSet<ProductPic>();

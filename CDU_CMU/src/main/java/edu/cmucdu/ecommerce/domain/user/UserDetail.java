@@ -1,5 +1,6 @@
 package edu.cmucdu.ecommerce.domain.user;
 
+import javax.persistence.CascadeType;
 import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
@@ -18,13 +19,13 @@ public abstract class UserDetail {
 	/**
 	 * the username and password of the user
 	 */
-	@OneToOne
+	@OneToOne (cascade=CascadeType.ALL)
 	private Principal principle; 
-	@OneToOne
-	Description name;
-	@OneToOne
-	Description description;
 	
+	@OneToOne(cascade=CascadeType.ALL)
+	Description name;
+	@OneToOne(cascade=CascadeType.ALL)
+	Description description;
 	@Transient
 	LocaleEnum locale =LocaleEnum.CHINESE;
 

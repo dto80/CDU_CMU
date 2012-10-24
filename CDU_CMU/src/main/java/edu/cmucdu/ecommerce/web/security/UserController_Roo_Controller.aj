@@ -24,17 +24,6 @@ privileged aspect UserController_Roo_Controller {
     @Autowired
     UserDetailDao UserController.userDetailDao;
     
-    @RequestMapping(method = RequestMethod.POST, produces = "text/html")
-    public String UserController.create(@Valid Principal principal, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
-        if (bindingResult.hasErrors()) {
-            populateEditForm(uiModel, principal);
-            return "security/users/create";
-        }
-        uiModel.asMap().clear();
-        principal.persist();
-        return "redirect:/security/users/" + encodeUrlPathSegment(principal.getId().toString(), httpServletRequest);
-    }
-    
     @RequestMapping(params = "form", produces = "text/html")
     public String UserController.createForm(Model uiModel) {
         populateEditForm(uiModel, new Principal());

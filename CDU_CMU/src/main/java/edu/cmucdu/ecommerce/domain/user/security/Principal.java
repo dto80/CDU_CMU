@@ -1,5 +1,6 @@
 package edu.cmucdu.ecommerce.domain.user.security;
 
+import javax.persistence.CascadeType;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -23,6 +24,6 @@ public class Principal {
     private String password;
 
     private Boolean enabled;
-    @OneToOne
+    @OneToOne(cascade=CascadeType.ALL)
     private UserDetail user;
 }
