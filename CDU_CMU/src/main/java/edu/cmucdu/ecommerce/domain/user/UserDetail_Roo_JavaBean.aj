@@ -18,25 +18,6 @@ privileged aspect UserDetail_Roo_JavaBean {
         this.principle = principle;
     }
     
-<<<<<<< HEAD
-    public Description UserDetail.getName() {
-        return this.name;
-    }
-    
-    public void UserDetail.setName(Description name) {
-        this.name = name;
-    }
-    
-    public Description UserDetail.getDescription() {
-        return this.description;
-    }
-    
-    public void UserDetail.setDescription(Description description) {
-        this.description = description;
-    }
-    
-=======
->>>>>>> update some information
     public LocaleEnum UserDetail.getLocale() {
         return this.locale;
     }
