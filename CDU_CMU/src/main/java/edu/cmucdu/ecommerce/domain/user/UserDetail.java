@@ -22,15 +22,20 @@ public abstract class UserDetail {
 	@OneToOne (cascade=CascadeType.ALL)
 	private Principal principle; 
 	
+<<<<<<< HEAD
 	@OneToOne(cascade=CascadeType.ALL)
 	Description name;
 	@OneToOne(cascade=CascadeType.ALL)
 	Description description;
+=======
+>>>>>>> update some information
 	@Transient
 	LocaleEnum locale =LocaleEnum.CHINESE;
 
-
-
+	@OneToOne(cascade=CascadeType.ALL)
+	Description name;
+	@OneToOne(cascade=CascadeType.ALL)
+	Description description;
 	
 	public String getLocalName(){
 		if (locale == LocaleEnum.CHINESE){
